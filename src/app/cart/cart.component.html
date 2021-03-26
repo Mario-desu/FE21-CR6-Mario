@@ -1,0 +1,48 @@
+<div class="container mt-4">
+    <h3>Cart</h3>
+    
+    <h5>Your choice</h5>
+
+
+    
+    <table class="cart-item mb-3 cart-table" *ngFor="let item of items">
+        <td><img src="{{item.image}}" alt="{{item.destination}}" class="img-thumbnail img-cart"></td>
+        <td>{{ item.destination }} </td>
+        <td>€ {{ item.price }}</td>
+    </table>
+  
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+  
+  
+      <label for="fname">First name:</label><br>
+      <input id="fname" type="text" formControlName="fname"><br>
+      
+      <label for="lname">Last name:</label><br>
+      <input id="lname" type="text" formControlName="lname"><br>
+
+      <label for="street">Street:</label><br>
+      <input id="street" type="text" formControlName="street"><br>
+
+      <label for="zipcode">Zip-Code:</label><br>
+      <input id="zipcode" type="text" formControlName="zipcode"><br>
+
+      <label for="city">City:</label><br>
+      <input id="city" type="text" formControlName="city"><br>
+
+      <label for="city">City:</label><br>
+      <input id="city" type="text" formControlName="city"><br>
+
+      <label for="phone">Phone:</label><br>
+      <input id="phone" type="text" formControlName="phone"><br>
+
+      <label for="email">E-mail:</label><br>
+      <input id="e-mail" type="text" formControlName="email"><br>
+      <br>
+
+      
+      
+
+        <button class="button btn btn-secondary" type="submit">Book your trip</button>   
+      
+      </form>
+    </div>

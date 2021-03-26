@@ -1,0 +1,20 @@
+<h1>Our offers!</h1>
+
+
+<div class="row row-cols-2 row-cols-md-4 g-4">
+    <div class="col" *ngFor="let travel of travels; index as travelId">
+      <div class="card h-100">
+        <a routerLink="travels/{{travelId}}"><img src="{{travel.image}}" class="card-img-top" alt="{{travel.destination}}"></a>
+        <div class="card-body">
+          <h5 class="card-title"><a routerLink="travels/{{travelId}}">{{travel.destination}}</a></h5>
+          <p class="card-text">{{travel.description}}</p>
+          <p class="card-text">Price: € {{travel.price}}</p>
+          <p class="card-text">Start date: {{travel.startDate}}</p>
+          <p class="card-text">Duration: {{travel.duration}} days</p>
+        </div>
+        <div class="card-footer">
+            <p><button (click)="addToCart(travel)" class="btn btn-outline-secondary">Book your trip</button></p>
+        </div>
+      </div>
+    </div>
+</div>
