@@ -6,43 +6,43 @@
 
     
     <table class="cart-item mb-3 cart-table" *ngFor="let item of items">
-        <td><img src="{{item.image}}" alt="{{item.destination}}" class="img-thumbnail img-cart"></td>
-        <td>{{ item.destination }} </td>
-        <td>€ {{ item.price }}</td>
+        <td><img src="{{item.image}}" alt="{{item.destination}}" class="img-thumbnail img-cart"></td><hr>
+        <td>{{ item.destination }} </td><br>
+        <td>€ {{ item.price }}</td><hr>
     </table>
   
     <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
   
-  
       <label for="fname">First name:</label><br>
-      <input id="fname" type="text" formControlName="fname"><br>
+      <input class="mb-2" id="fname" type="text" formControlName="fname" ><br>
       
       <label for="lname">Last name:</label><br>
-      <input id="lname" type="text" formControlName="lname"><br>
+      <input class="mb-2" id="lname" type="text" formControlName="lname"><br>
 
       <label for="street">Street:</label><br>
-      <input id="street" type="text" formControlName="street"><br>
+      <input class="mb-2" id="street" type="text" formControlName="street"><br>
 
       <label for="zipcode">Zip-Code:</label><br>
-      <input id="zipcode" type="text" formControlName="zipcode"><br>
+      <input class="mb-2" id="zipcode" type="number" formControlName="zipcode"><br>
 
       <label for="city">City:</label><br>
-      <input id="city" type="text" formControlName="city"><br>
-
-      <label for="city">City:</label><br>
-      <input id="city" type="text" formControlName="city"><br>
+      <input class="mb-2" id="city" type="text" formControlName="city"><br>
 
       <label for="phone">Phone:</label><br>
-      <input id="phone" type="text" formControlName="phone"><br>
+      <input class="mb-2" id="phone" type="text" formControlName="phone"><br>
 
       <label for="email">E-mail:</label><br>
-      <input id="e-mail" type="text" formControlName="email"><br>
+      <input class="mb-2" id="e-mail" type="email" formControlName="email"><br>
+      <br>
+
+      <label for="comment">Your comment:</label><br>
+      <textarea class="p-2"id="comment" type="text" formControlName="comment"></textarea><br>
       <br>
 
       
       
 
-        <button class="button btn btn-secondary" type="submit">Book your trip</button>   
+        <button class="button btn btn-secondary mb-5" type="submit">Book your trip</button>   
       
       </form>
     </div>

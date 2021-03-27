@@ -1,10 +1,11 @@
-<div *ngIf="travel" class="container">
+<div *ngIf="travel" class="container my-5">
 
     <h3>{{ travel.destination }}</h3>
-    <p><b>Description:</b> {{ travel.description }}</p>
-    <p><b>Start date:</b> {{ travel.startDate }}</p>
-    <p><b>Duration:</b> {{ travel.duration }} days</p>
-    <h5>Our offer: € {{ travel.price }}</h5>
-    <p><button (click)="addToCart(travel)" class="btn btn-outline-secondary">Book</button></p>
+    <br>
+    <p class="text-muted"><b>Description:</b> {{ travel.description }}</p>
+    <p class="text-muted"><b>Start date:</b> {{ travel.startDate }}</p>
+    <p class="text-muted"><b>Duration:</b> {{ travel.duration }} days</p>
+    <h5>Our offer: € {{ travel.price }}</h5><br>
+    <p><button (click)="addToCart(travel)" class="btn btn-outline-secondary">Book now</button></p>
     <img src="{{travel.image}}" alt="{{travel.destination}}">
 </div>

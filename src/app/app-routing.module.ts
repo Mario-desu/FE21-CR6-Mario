@@ -5,6 +5,7 @@ import { BlogPageComponent } from './blog-page/blog-page.component';
 import { TravelPageComponent } from './travel-page/travel-page.component';
 import { TravelDetailsComponent } from './travel-details/travel-details.component';
 import { CartComponent } from './cart/cart.component';
+import { AboutComponent} from './about/about.component'
 
 
 const routes: Routes = [
@@ -24,13 +25,19 @@ const routes: Routes = [
 
     path: 'travels/travels/:travelId', component: TravelDetailsComponent
 
-},
+  },
 
-{
+  {
 
-  path: 'cart', component: CartComponent
+    path: 'cart', component: CartComponent
 
-}
+  },
+
+  {
+
+    path: 'about', component: AboutComponent
+
+  } 
 
   
 

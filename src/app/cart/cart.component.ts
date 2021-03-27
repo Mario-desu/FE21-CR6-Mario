@@ -9,6 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class CartComponent implements OnInit {
   items;
+  
 
   checkoutForm = new FormGroup({
     fname: new FormControl(''),
@@ -17,7 +18,8 @@ export class CartComponent implements OnInit {
     zipcode: new FormControl(''),
     city: new FormControl(''),
     phone: new FormControl(''),
-    email: new FormControl('')
+    email: new FormControl(''),
+    comment: new FormControl('')
    });
 
   constructor(private cartService: CartService) { }

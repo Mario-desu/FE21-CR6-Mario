@@ -7,10 +7,15 @@
     font-family: 'Ubuntu', sans-serif;
     
 
-    /* a {text-decoration: none;} */
+   
     
 }
 
-body {
-    background-color: #d7947d;
+a {
+    text-decoration: none;
+
 }
+
+/* body {
+    background-color: #fffdd8;
+} */
