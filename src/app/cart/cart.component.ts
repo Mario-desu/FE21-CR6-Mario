@@ -44,12 +44,11 @@ export class CartComponent implements OnInit {
     }
 
     if(this.sum <= 700) {
-      this.sumString = this.sum.toString();
-      document.getElementById("sumInput").innerHTML = this.sumString;
+      document.getElementById("sumInput").innerHTML = `Total: € ` + this.sum;
     }else if (this.sum > 700) {
-      this.sumString = this.sum.toString();
       this.sum = this.sum *0.9;
-      document.getElementById("sumInput").innerHTML = `Total: € ` + this.sumString + ` (10 % discount considered)`;
+      console.log(this.sum);
+      document.getElementById("sumInput").innerHTML = `Total: € ` + this.sum + ` (10 % discount considered)`;
     }
   }
 
