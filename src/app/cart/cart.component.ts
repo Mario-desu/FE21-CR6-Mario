@@ -9,6 +9,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class CartComponent implements OnInit {
   items;
+  sum:any; // for calculating
+  priceArray:any = [];// for calculating
+  sumString:any;// for calculating
   
 
   checkoutForm = new FormGroup({
@@ -26,6 +29,28 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
+
+/*for calculating total price */
+
+
+    for (let priceValue of this.items) {
+      priceValue = priceValue.price;
+      this.priceArray.push(priceValue);
+      console.log(this.priceArray);
+      this.sum = this.priceArray.reduce(function(a, b){
+        return a+b;
+      })
+      console.log (this.sum);
+    }
+
+    if(this.sum <= 700) {
+      this.sumString = this.sum.toString();
+      document.getElementById("sumInput").innerHTML = this.sumString;
+    }else if (this.sum > 700) {
+      this.sumString = this.sum.toString();
+      this.sum = this.sum *0.9;
+      document.getElementById("sumInput").innerHTML = `Total: € ` + this.sumString + ` (10 % discount considered)`;
+    }
   }
 
   onSubmit(customerData) {
@@ -34,6 +59,9 @@ export class CartComponent implements OnInit {
   
     this.items = this.cartService.clearCart();  
     this.checkoutForm.reset();
+
+
+
   
   }
 
