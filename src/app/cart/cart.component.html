@@ -10,6 +10,11 @@
         <td>{{ item.destination }} </td><br>
         <td>€ {{ item.price }}</td><hr>
     </table>
+    <hr>
+
+    <div id="sumInput"></div><br>
+
+    <br>
   
     <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
   
