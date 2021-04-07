@@ -11,9 +11,9 @@ import { HeroService } from '../hero.service';
 })
 export class CartComponent implements OnInit {
   items;
-  sum:any; // for calculating
+  sum:any = 0; // for calculating
   priceArray:any = [];// for calculating
-  sumString:any;// for calculating
+  // sumString:any;// for calculating
   
 
   checkoutForm = new FormGroup({
@@ -34,28 +34,9 @@ export class CartComponent implements OnInit {
     this.hero.hide();// hide hero-component
 
 /*for calculating total price */
+    this.sum = this.cartService.calculateTotal();
 
-
-    for (let priceValue of this.items) {//get values from object
-      priceValue = priceValue.price;//get only price from object
-      // console.log(priceValue);
-      this.priceArray.push(priceValue);//push price into empty array
-      console.log(this.priceArray);
-      this.sum = this.priceArray.reduce(function(a, b){
-        return a+b;//reduce values to one in the end
-      })
-      console.log (this.sum);
-    }
-
-    if(this.sum <= 700) {
-      // this.sumString = this.sum.toString();
-      document.getElementById("sumInput").innerHTML = `Total: € ${this.sum}`;
-    }else if (this.sum > 700) {
-      // this.sumString = this.sum.toString();
-      this.sum = (this.sum *0.9).toFixed(2);//limit decimals to 2 digits
-      console.log(this.sum);
-      document.getElementById("sumInput").innerHTML = `Total: € ${this.sum} (10 % discount considered)`;
-    }
+    
   }
 
   //what happens when you click on "Book your trip":
