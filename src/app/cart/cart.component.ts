@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
-import { FormControl, FormGroup } from '@angular/forms';
+//validators necessary to use validators in FormGroup
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-cart',
@@ -15,20 +17,21 @@ export class CartComponent implements OnInit {
   
 
   checkoutForm = new FormGroup({
-    fname: new FormControl(''),
-    lname: new FormControl(''),
-    street: new FormControl(''),
-    zipcode: new FormControl(''),
-    city: new FormControl(''),
-    phone: new FormControl(''),
-    email: new FormControl(''),
-    comment: new FormControl('')
+    fname: new FormControl('', Validators.required),
+    lname: new FormControl('', Validators.required),
+    street: new FormControl('', Validators.required),
+    zipcode: new FormControl('', Validators.required),
+    city: new FormControl('', Validators.required),
+    phone: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    comment: new FormControl('', Validators.required)
    });
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, public hero: HeroService) { }
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
+    this.hero.hide();// hide hero-component
 
 /*for calculating total price */
 
@@ -36,32 +39,46 @@ export class CartComponent implements OnInit {
     for (let priceValue of this.items) {
       priceValue = priceValue.price;
       this.priceArray.push(priceValue);
-      console.log(this.priceArray);
+      // console.log(this.priceArray);
       this.sum = this.priceArray.reduce(function(a, b){
         return a+b;
       })
-      console.log (this.sum);
+      // console.log (this.sum);
     }
 
     if(this.sum <= 700) {
-      document.getElementById("sumInput").innerHTML = `Total: € ` + this.sum;
+      // this.sumString = this.sum.toString();
+      document.getElementById("sumInput").innerHTML = `Total: € ${this.sum}`;
     }else if (this.sum > 700) {
-      this.sum = this.sum *0.9;
+      // this.sumString = this.sum.toString();
+      this.sum = (this.sum *0.9).toFixed(2);//limit decimals to 2 digits
       console.log(this.sum);
-      document.getElementById("sumInput").innerHTML = `Total: € ` + this.sum + ` (10 % discount considered)`;
+      document.getElementById("sumInput").innerHTML = `Total: € ${this.sum} (10 % discount considered)`;
     }
   }
 
+  //what happens when you click on "Book your trip":
+
   onSubmit(customerData) {
     // Process checkout data here  
+    let sendBooking = document.getElementById('sumInput');
+
+    if (this.checkoutForm.valid) {
+      sendBooking.innerHTML = 'Thank you for booking!';
+      sendBooking.style.color = 'green';
+      this.checkoutForm.reset();//empty form when submit
+      this.items = this.cartService.clearCart();//clear cart when submit
+    }else{
+      sendBooking.innerHTML = 'Please fill in all fields!';
+      sendBooking.style.color = 'red';
+      sendBooking.style.fontSize = '1.4em';
+    }
+    
+    
+
     console.warn('Your order has been submitted', customerData);  
   
-    this.items = this.cartService.clearCart();  
-    this.checkoutForm.reset();
-
-
-
-  
+     
   }
 
 }

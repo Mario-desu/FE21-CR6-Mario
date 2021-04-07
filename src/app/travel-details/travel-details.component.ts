@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; 
 /* package that have some methods and properties that will help us to grab the value from the URL and use it with some build-in methods*/
 import { CartService } from '../cart.service';
-import { travels } from '../travels';
+import { HeroService } from '../hero.service';
+import { travels } from '../travels';// import from travel.ts
 
 
 @Component({
@@ -13,21 +14,21 @@ import { travels } from '../travels';
 export class TravelDetailsComponent implements OnInit {
 
   travel: any;
-  constructor(private route: ActivatedRoute, private cartService: CartService) { }
+  constructor(private route: ActivatedRoute, private cartService: CartService, public hero: HeroService) { }
 
   addToCart(travel) {
 
     window.alert('Your travel product has been added to the cart!');
 
-    this.cartService.addToCart(travel);
+    this.cartService.addToCart(travel);// add article to cart
 
   }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-    this.travel = travels[+params.get('travelId')];
-  
+    this.travel = travels[+params.get('travelId')];// get page with id    
     });
+    this.hero.hide();  //hide hero-component
   }
 
 }

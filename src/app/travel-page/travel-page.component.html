@@ -1,19 +1,17 @@
 <h1 class="text-center my-5">Check our fantastic offers!</h1>
-<div class="row row-cols-1 row row-cols row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
     <div class="col" *ngFor="let travel of travels; index as travelId">
-      <div class="card h-100">
+      <div class="card shadow h-100">
         <a routerLink="travels/{{travelId}}"><img src="{{travel.image}}" class="card-img-top img-style" alt="{{travel.destination}}"></a><!--class img-style für CSS-->
-        <div class="card-body">
-          <a routerLink="travels/{{travelId}}">
+        <a routerLink="travels/{{travelId}}"><div class="card-body">          
           <h5 class="card-title">{{travel.destination}}</h5><br>
           <p class="card-text text-muted">{{travel.description}}</p>
           <p class="card-text text-muted">Price: € {{travel.price}}</p>
           <p class="card-text text-muted">Start date: {{travel.startDate}}</p>
-          <p class="card-text text-muted">Duration: {{travel.duration}} days</p>
-          </a>
-        </div>
+          <p class="card-text text-muted">Duration: {{travel.duration}} days</p>          
+        </div></a>
         <div class="card-footer bg-light">
-            <p><button (click)="addToCart(travel)" class="btn btn-outline-secondary">Book your trip</button></p>
+            <p><button (click)="addToCart(travel)" class="btn btn-outline-secondary">Book your trip</button></p><!--add article to cart-->
         </div>
       </div>
     </div>

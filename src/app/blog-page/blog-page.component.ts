@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-blog-page',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public hero: HeroService) { }
 
   ngOnInit(): void {
+    this.hero.hide(); // hide hero-component
   }
 
 }

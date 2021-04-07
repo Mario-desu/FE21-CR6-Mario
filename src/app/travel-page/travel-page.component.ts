@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
+import { HeroService } from '../hero.service';
 
 
-import { travels } from '../travels';
+import { travels } from '../travels';// import drom travels.ts
 
 
 @Component({
@@ -12,7 +13,7 @@ import { travels } from '../travels';
 })
 export class TravelPageComponent implements OnInit {
   travels = travels;
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, public hero: HeroService) { }
 
   addToCart(travel) {
 
@@ -23,6 +24,7 @@ export class TravelPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+     this.hero.hide();// hide hero-component
   }
 
 }

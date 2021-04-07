@@ -5,12 +5,21 @@
     height: 22em;      /*  or 100% of container */
     object-fit: cover; /* none can be an option too as cover may deform it*/
     object-position: 50% 50%; /* if both 50% will center it*/
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 
 }
 
+.img-style:hover {
+    filter: grayscale(0.8);/* hover-effect for images*/
+}
 
 
 .card-body:hover {
     background-color: #d6e9ec;
+}
+
+.card-footer {
+    border-radius: 15px;
 }
 

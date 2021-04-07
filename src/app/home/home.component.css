@@ -1,0 +1,7 @@
+.card img {
+    width: 100%;    /* or 100% of container */
+    height: 100%;      /*  or 100% of container */
+    object-fit: cover; /* none can be an option too as cover may deform it*/
+    object-position: 50% 50%; /* if both 50% will center it*/
+
+}

@@ -5,15 +5,9 @@
 
 
 .hero-style h1, h4, p{
-    text-shadow: 1.2px 1.2px 2.4px darkgray;
+    text-shadow: 1.2px 1.2px 2.4px black;
     color: whitesmoke;
 }
-
-/* .hero-style p{
-    font-size : 1em;
-    text-shadow: 1px 1px 2px darkgray;
-    color: whitesmoke;
-}  */
 
 
 /*text disappears*/

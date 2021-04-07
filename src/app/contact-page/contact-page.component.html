@@ -1,0 +1,28 @@
+<div class="container">
+    <h1 class="my-5">Contact</h1>
+    <p>If you have any questions to our products, fell free to contact us.<br>We will answer you as soon as possible.</p><br>
+    <form class="row g-3 mb-5" [formGroup]="contact" (ngSubmit)="onSubmit()"><!--call onSubmit Function-->
+        <div class="col-lg-6 col-md-12">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="First Name" formControlName="firstName">
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name" formControlName="lastName">
+        </div>
+
+        <div class="col-lg-12 col-md-12">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="e.g. office@email.com" formControlName="email">
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" name="message" id="message" formControlName="message" rows="4" 
+            placeholder="Write your message here"></textarea>
+        </div>
+        <div id="sendAlert"></div><!--div to insert message generated after submitting -->
+        <div id="mesBtn">
+            <button type="submit" class="btn btn-secondary">Send</button>
+        </div>
+    </form>
+</div>

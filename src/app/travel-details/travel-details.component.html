@@ -2,10 +2,10 @@
 
     <h3>{{ travel.destination }}</h3>
     <br>
-    <p class="text-muted"><b>Description:</b> {{ travel.description }}</p>
+    <p class="text-muted"><b>Destination:</b><br> {{ travel.details }}</p><!--Details only on details-page-->
     <p class="text-muted"><b>Start date:</b> {{ travel.startDate }}</p>
     <p class="text-muted"><b>Duration:</b> {{ travel.duration }} days</p>
     <h5>Our offer: € {{ travel.price }}</h5><br>
-    <p><button (click)="addToCart(travel)" class="btn btn-outline-secondary">Book now</button></p>
-    <img src="{{travel.image}}" alt="{{travel.destination}}">
+    <p><button (click)="addToCart(travel)" class="btn btn-outline-secondary">Book now</button></p><!--click to add article to cart-->
+    <img src="{{travel.image}}" alt="{{travel.destination}}" class="img-fluid">
 </div>

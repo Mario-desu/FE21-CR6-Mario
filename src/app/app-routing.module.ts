@@ -6,6 +6,7 @@ import { TravelPageComponent } from './travel-page/travel-page.component';
 import { TravelDetailsComponent } from './travel-details/travel-details.component';
 import { CartComponent } from './cart/cart.component';
 import { AboutComponent} from './about/about.component'
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 
 const routes: Routes = [
@@ -37,7 +38,13 @@ const routes: Routes = [
 
     path: 'about', component: AboutComponent
 
-  } 
+  },
+
+  {
+
+    path: 'contact', component: ContactPageComponent
+
+  }  
 
   
 

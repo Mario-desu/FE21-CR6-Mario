@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeroComponent } from './hero/hero.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AboutComponent } from './about/about.component';
     CartComponent,
     HeroComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
+    ContactPageComponent
   ],
   imports: [
     BrowserModule,
