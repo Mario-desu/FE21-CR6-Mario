@@ -36,14 +36,15 @@ export class CartComponent implements OnInit {
 /*for calculating total price */
 
 
-    for (let priceValue of this.items) {
-      priceValue = priceValue.price;
-      this.priceArray.push(priceValue);
-      // console.log(this.priceArray);
+    for (let priceValue of this.items) {//get values from object
+      priceValue = priceValue.price;//get only price from object
+      // console.log(priceValue);
+      this.priceArray.push(priceValue);//push price into empty array
+      console.log(this.priceArray);
       this.sum = this.priceArray.reduce(function(a, b){
-        return a+b;
+        return a+b;//reduce values to one in the end
       })
-      // console.log (this.sum);
+      console.log (this.sum);
     }
 
     if(this.sum <= 700) {

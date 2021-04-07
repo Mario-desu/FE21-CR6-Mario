@@ -12,3 +12,6 @@ export class HeroService {
 
   show() { this.visible = true; }
 }
+
+
+// service to hide and show hero component
