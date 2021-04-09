@@ -11,7 +11,8 @@ import { HeroService } from '../hero.service';
 })
 export class CartComponent implements OnInit {
   items;
-  sum:any = 0; // for calculating
+  // res;
+  sum: any; // for calculating
   priceArray:any = [];// for calculating
   // sumString:any;// for calculating
   
@@ -34,8 +35,32 @@ export class CartComponent implements OnInit {
     this.hero.hide();// hide hero-component
 
 /*for calculating total price */
-    this.sum = this.cartService.calculateTotal();
+    // this.sum = this.cartService.calculateTotal();
 
+    
+    for (let priceValue of this.items) {
+      priceValue = priceValue.price;//get only price from object
+      this.priceArray.push(priceValue);//push price into empty array
+      console.log(this.priceArray);
+      this.sum = this.priceArray.reduce(function(a, b){
+        return a+b;//reduce values to one in the end
+      })
+      console.log (this.sum);
+    }
+      if(this.sum <= 700) {
+        // this.sumString = this.sum.toString();
+
+        document.getElementById('sumInput').innerHTML = `Total: € ${this.sum}`;
+      }else if (this.sum > 700) {
+        // this.sumString = this.sum.toString();
+        this.sum = (this.sum *0.9).toFixed(2);//limit decimals to 2 digits
+        console.log(this.sum);
+        document.getElementById('sumInput').innerHTML = `Total: € ${this.sum} (10 % discount considered)`;
+      }
+    
+
+
+ 
     
   }
 
@@ -50,13 +75,15 @@ export class CartComponent implements OnInit {
       sendBooking.style.color = 'green';
       this.checkoutForm.reset();//empty form when submit
       this.items = this.cartService.clearCart();//clear cart when submit
+      
+      
     }else{
       sendBooking.innerHTML = 'Please fill in all fields!';
       sendBooking.style.color = 'red';
       sendBooking.style.fontSize = '1.4em';
     }
     
-    
+ 
 
     console.warn('Your order has been submitted', customerData);  
   

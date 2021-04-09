@@ -1,53 +1,58 @@
 <div class="container mt-4">
-    <h3 class="mb-4 fs-2">Cart</h3>
+    <h3 class="fs-3">Cart</h3>
     
-    <h5 class="mb-4">Your choice:</h5>
+    <h5>Your choice</h5>
+    
 
 <!--layout for the cart-entries-->
-    <table class="table">
-      <tbody *ngFor="let item of items">
-        <tr>
-          <td><img src="{{item.image}}" alt="{{item.destination}}" class="img-thumbnail img-cart"></td>
-          <td>{{ item.destination }} </td>
-          <td>€ {{ item.price }} </td>
-        </tr>
-      </tbody>
-    </table>
-    
+  <table class="table">
+    <tbody *ngFor="let item of items">
+      <tr>
+        <td><img src="{{item.image}}" alt="{{item.destination}}" class="img-thumbnail img-cart"></td>
+        <td>{{ item.destination }} </td>
+        <td>€ {{ item.price }} </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
   
 
-    <div id="sumInput" class="fs-4">{{ sum }}</div><br><!--for total result, text will be replaced by Total sum-->
+    <div class="fs-4" id="sumInput">The cart is empty!</div><br>
+ 
 
     <br>
 
   <!--Checkout-Form-->
 
     <form class="row g-3 mb-5" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
-  
+
+      <div class="col-lg-6 col-md-12">
+        <label for="lname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lname" placeholder="Last Name" formControlName="lname">
+      </div>
+
       <div class="col-lg-6 col-md-12">
         <label for="fname" class="form-label">First Name</label>
         <input type="text" class="form-control" id="fname" placeholder="First Name" formControlName="fname">
-     </div>
+      </div>
 
-     <div class="col-lg-6 col-md-12">
-        <label for="lname" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="lname" placeholder="Last Name" formControlName="lname">
-     </div>
-
-     <div class="col-lg-12 col-md-12">
+      <div class="col-lg-12 col-md-12">
         <label for="street" class="form-label">Street</label>
         <input type="text" class="form-control" id="street" placeholder="Street" formControlName="street">
-    </div>
+      </div>
 
-    <div class="col-lg-6 col-md-12">
+     <div class="col-lg-6 col-md-12">
       <label for="zipcode" class="form-label">Zip-Code</label>
       <input type="text" class="form-control" id="zipcode" placeholder="Zip-Code" formControlName="zipcode">
-    </div>
+     </div>
 
-    <div class="col-lg-6 col-md-12">
+
+     <div class="col-lg-6 col-md-12">
       <label for="city" class="form-label">City</label>
       <input type="text" class="form-control" id="city" placeholder="City" formControlName="city">
-    </div>
+     </div>
+
+
 
     <div class="col-lg-12 col-md-12">
       <label for="text" class="form-label">Phone</label>
@@ -60,13 +65,13 @@
     </div>
 
     <div class="col-lg-12 col-md-12">
-        <label for="comment" class="form-label">Your comment</label>
-        <textarea class="form-control" name="comment" id="comment" formControlName="comment" rows="5" 
-        placeholder="Write your comment here"></textarea>
+      <label for="comment" class="form-label">Your comment</label>
+      <textarea class="form-control" name="comment" id="comment" formControlName="comment" rows="5" 
+      placeholder="Write your comment here"></textarea>
     </div>
-
+    <!-- <div id="sendAlert"></div> -->
     <button class="btn btn-secondary mb-5" type="submit">Book your trip</button>
-    
-      
+
+
   </form>
 </div>
