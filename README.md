@@ -1,4 +1,9 @@
 # MyTravelPage
+This is an Angular-Project about a travel agency. On the Landing Page you can get to the contact form by clicking on "Contact us". When you click on "Travels" you will get to all offers. By clicking on "Book your trip" you add it to the shopping cart. By clicking on the card you will get more details. You can also book it from there. When you go to the shopping cart all selected items are in there. If the amount is high enough a discount will be considered. After entering data and booking the trip, the cart will be empty again. You also find a Blog and an About Page.
+
+
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
 
